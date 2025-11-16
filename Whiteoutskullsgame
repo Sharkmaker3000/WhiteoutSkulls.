@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Whiteout Skulls — Mobile FPS Prototype</title>
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#111827" />
+
+  <!-- Three.js CDN -->
+  <script src="https://unpkg.com/three@0.156.0/build/three.min.js"></script>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="game-container"></div>
+
+  <!-- HUD -->
+  <div id="hud">
+    <div id="top-bar">
+      <div id="level-xp">
+        <div id="level">Level: 1</div>
+        <div id="xp">XP: 0 / 100</div>
+        <div id="xp-bar">
+          <div id="xp-fill"></div>
+        </div>
+      </div>
+
+      <div id="score-round">
+        <div id="score">Score: 0</div>
+        <div id="round">Round: 1</div>
+      </div>
+    </div>
+
+    <div id="controls-row">
+      <div id="left-controls" class="touch-zone">Move (drag)</div>
+      <div id="right-controls" class="touch-zone">Hold to Fire</div>
+    </div>
+
+    <div id="bottom-ui">
+      <div class="ui-left">
+        <label class="toggle">
+          <input type="checkbox" id="dev-mode" />
+          <span>Dev Mode</span>
+        </label>
+        <button id="store-btn">Store</button>
+      </div>
+
+      <div class="ui-right">
+        <select id="operator-select">
+          <option value="mp">Operator (MP)</option>
+          <option value="zombie">Zombie</option>
+        </select>
+        <button id="start-btn">Start Round</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Store modal -->
+  <div id="store-modal" class="modal hidden" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close" id="store-close">&times;</button>
+      <h2>Store Bundles</h2>
+      <div id="bundles" class="bundles">
+        <!-- Bundles injected by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Info overlay for small help -->
+  <div id="help" class="help">
+    <p>Touch-drag to move. Touch-hold to fire. Select operator and press "Start Round".</p>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
